@@ -1,0 +1,13 @@
+
+body{
+    --inaltime-meniu:35px;
+    --latime-buton:150px;   
+}
+
+#acasa{
+    display: none;
+}
+
+#acasa-mediu{
+    display: block;
+}
