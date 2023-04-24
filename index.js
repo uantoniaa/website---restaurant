@@ -81,7 +81,7 @@ app.get("/favicon.ico", function(req,res){
 })
 
 app.get(["/index","/","/home" ], function(req,res){ 
-    res.render("pagini/index", {ip: req.ip});
+    res.render("pagini/index", {ip: req.ip, imagini: obGlobal.obImagini.imagini});
 })
 
 app.get("/despre" , function(req,res){ 
@@ -123,6 +123,33 @@ function initErori(){
         eroare.imagine="/"+obGlobal.obErori.cale_baza+"/"+eroare.imagine;
     }
 }
+app.get("*/galerie-animata.css",function(req, res){
+
+    var sirScss=fs.readFileSync(__dirname+"/resurse/scss_ejs/galerie_animata.scss").toString("utf8");
+    var culori=["navy","black","purple","grey"];
+    var indiceAleator=Math.floor(Math.random()*culori.length);
+    var culoareAleatoare=culori[indiceAleator]; 
+    rezScss=ejs.render(sirScss,{culoare:culoareAleatoare});
+    console.log(rezScss);
+    var caleScss=__dirname+"/temp/galerie_animata.scss"
+    fs.writeFileSync(caleScss,rezScss);
+    try {
+        rezCompilare=sass.compile(caleScss,{sourceMap:true});
+        
+        var caleCss=__dirname+"/temp/galerie_animata.css";
+        fs.writeFileSync(caleCss,rezCompilare.css);
+        res.setHeader("Content-Type","text/css");
+        res.sendFile(caleCss);
+    }
+    catch (err){
+        console.log(err);
+        res.send("Eroare");
+    }
+});
+
+app.get("*/galerie-animata.css.map",function(req, res){
+    res.sendFile(path.join(__dirname,"temp/galerie-animata.css.map"));
+});
 
 initErori();
 function initImagini(){
@@ -167,5 +194,5 @@ function afisareEroare(res, _identificator, _titlu="titlu default", _text, _imag
     
 }
 
-app.listen(1874);
+app.listen("5151");
 console.log("Serverul a pornit");
