@@ -331,3 +331,44 @@ video {
     border: 2px solid var(--culoare-mov3); 
   }
   
+
+  #text-reflectat{
+	top:100%;
+	transform-origin:0 0;
+	/*conetaza ordinea transformarilor!*/
+	transform: rotateX(180deg) skew(-45deg) scaleY(0.5) translate(10px,-25px); 
+	opacity:0.55;
+    text-align: center;
+}
+
+#text{	
+    margin-bottom: 0;
+	position:relative;
+    padding-bottom: 0;
+
+}
+
+#text, #text-reflectat{
+	font-size:2rem;
+    text-align: center;
+}
+#titlu-u {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+}
+
+#titlu-u h2 {
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+

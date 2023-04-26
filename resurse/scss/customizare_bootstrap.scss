@@ -1,4 +1,42 @@
 @use '../../node_modules/bootstrap/scss/bootstrap.scss' with (
-    $primary: red,
-    $secondary: purple
-)
+    $primary: #8666cf,
+    $secondary: #13131c,
+
+    $body-bg: #f5f5f5,
+    $body-color: #141313,
+
+    $grid-breakpoints: (xs: 0,
+        sm: 500px,
+        md: 700px,
+        lg: 1000px,
+        xl: 1200px,
+        xxl: 1400px,
+    ),
+//pt dimensiuni de ecran ^
+
+
+    $container-max-widths: (sm: 500px,
+        md: 600px,
+        lg: 920px,
+        xl: 1100px,
+        xxl: 1350px,
+    ),
+
+    $border-radius: 0.5rem,
+    $border-radius-sm: 0.25rem,
+    $border-radius-lg: 0.55rem,
+    $border-radius-xl: 1.2rem,
+    $border-radius-2xl: 2.2rem,
+    $border-radius-pill: 50rem,
+
+    $grid-columns:10 ,
+$grid-gutter-width: 1.3rem,
+ //in plus ^
+    $display-font-sizes: (1: 4.2rem,
+        2: 3.75rem,
+        3: 3rem,
+        4: 2.5rem,
+        5: 2rem,
+        6: 1.5rem,
+    ),
+    $font-family-base: "font-sans-serif");

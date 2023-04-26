@@ -1,5 +1,13 @@
 <section id="galerie-statica">
-    <h2>Galerie</h2>
+    <div id="container">
+        <div id="text">
+            <h2>Galerie</h2>
+            <div id="text-reflectat">
+                Galerie
+            </div>
+        </div>
+
+    </div>
     <% var i=0; %>
     <div id="grid-galerie">
         <% 
@@ -19,9 +27,9 @@
                                 }
                             }
                             %>
-                     
-                        <%    for (let imagine of locals.imagini) { %>
-                         <%       if (imagine.anotimp && imagine.anotimp.includes(anotimpCurent)) { 
+
+        <%    for (let imagine of locals.imagini) { %>
+        <%       if (imagine.anotimp && imagine.anotimp.includes(anotimpCurent)) { 
                             %>
 
         <% i=i + 1; %>

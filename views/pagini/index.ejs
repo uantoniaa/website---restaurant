@@ -15,10 +15,10 @@
         <%- include("../fragmente/header.ejs")  %>
 
         <main>
-            <button class="btn btn-primary">ceva</button>
             <div id="grid-pagina">
                 <section id="bunvenit">
                     <h2>Bun venit pe site-ul restaurantului Gourani! <span class="fas fa-utensils fa-shake"></span></h2>
+                    <div id="imagine"></div>
                     <figure>
                         <picture>
                             <source media="(max-width: 1000px)" srcset="resurse/imagini/img2.png">
@@ -253,8 +253,9 @@
                 </section>
 
                 <section id="oferte">
+                    <div id="titlu-u">
                     <h2>Oferte</h2>
-
+                </div>
                     <ul>
                         <li>Vă invităm la restaurantul nostru pentru a experimenta preparatele noastre delicioase!
                             Oferta
@@ -279,7 +280,7 @@
                         Your browser does not support the video tag.
                     </video>
                     <%- include("../fragmente/galerie_statica.ejs") %>
-                    
+
                 </section>
             </div>
 

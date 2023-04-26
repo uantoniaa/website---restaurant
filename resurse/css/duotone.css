@@ -1,0 +1,43 @@
+#imagine{
+	position:relative;
+	background-image:url("/resurse/imagini/fundal.png");
+	background-size:cover;
+	width:500px; 
+	height: 500px;
+    transition: all 2s linear;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    border: 3px solid var(--culoare-mov3);
+    overflow: hidden;
+}
+
+#imagine:after, #imagine:before{
+	content:" ";
+	position:absolute;
+	height:100%;
+	width:100%;
+
+	transition:all 2s linear;
+}
+
+#imagine:after{
+	background-color:var(--culoare-mov2);
+    opacity: 0.3;
+    right: -100%;
+}
+
+#imagine:before{
+	background-color:var(--culoare-mov1);
+	mix-blend-mode:darken;
+    opacity: 0.8;
+    left: -100%;
+}
+
+#imagine:hover:after {
+    right: 0;
+}
+
+#imagine:hover:before {
+    left: 0;
+}

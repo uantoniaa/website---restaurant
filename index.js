@@ -27,12 +27,13 @@ for (let folder of vectorFoldere){
 }
 
 function compileazaScss(caleScss, caleCss){
-    console.log("cale:",caleCss);
+    console.log("cale: ",caleCss);
     if(!caleCss){
-        let vectorCale=caleScss.split("\\")
-        let numeFisExt=vectorCale[vectorCale.length-1];
-
-        let numeFis=numeFisExt.split(".")[0]   /// "a.scss"  -> ["a","scss"]
+        // TO DO
+        // let vectorCale=caleScss.split("\\")
+        // let numeFisExt=vectorCale[vectorCale.length-1];
+        let numeFisExt=path.basename(caleScss);
+        let numeFis=numeFisExt.split(".")[0] ;  /// "a.scss"  -> ["a","scss"]
         caleCss=numeFis+".css";
     }
     
@@ -43,16 +44,30 @@ function compileazaScss(caleScss, caleCss){
     
     
     // la acest punct avem cai absolute in caleScss si  caleCss
-    let vectorCale=caleCss.split("\\");
-    let numeFisCss=vectorCale[vectorCale.length-1];
+    //TO DO
+    // let vectorCale=caleCss.split("\\");
+    // let numeFisCss=vectorCale[vectorCale.length-1]
+    let caleBackup = path.join(obGlobal.folderBackup, "resurse/css");
+    if (!fs.existsSync(caleBackup)) {
+        fs.mkdirSync(caleBackup, {recursive:true})
+    }
+    let numeFisCss=path.basename(caleCss);
+
     if (fs.existsSync(caleCss)){
         fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup,numeFisCss ))// +(new Date()).getTime()
     }
     rez=sass.compile(caleScss, {"sourceMap":true});
     fs.writeFileSync(caleCss,rez.css)
-    console.log("Compilare SCSS",rez);
+    //console.log("Compilare SCSS",rez);
 }
 //compileazaScss("a.scss");
+vFisiere=fs.readdirSync(obGlobal.folderScss);
+for( let numeFis of vFisiere ){
+    if (path.extname(numeFis)==".scss"){
+        compileazaScss(numeFis);
+    }
+}
+
 fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
     console.log(eveniment, numeFis);
     if (eveniment=="change" || eveniment=="rename"){
@@ -199,5 +214,5 @@ function afisareEroare(res, _identificator, _titlu="titlu default", _text, _imag
     
 }
 
-app.listen("5102");
+app.listen("5105");
 console.log("Serverul a pornit");
