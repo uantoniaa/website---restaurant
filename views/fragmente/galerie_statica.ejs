@@ -1,0 +1,52 @@
+<section id="galerie-statica">
+    <h2>Galerie</h2>
+    <% var i=0; %>
+    <div id="grid-galerie">
+        <% 
+                            const anotimpuri = {
+                                iarna: [11, 0, 1], // Decembrie, Ianuarie, Februarie
+                                primavara: [2, 3, 4], // Martie, Aprilie, Mai
+                                vara: [5, 6, 7], // Iunie, Iulie, August
+                                toamna: [8, 9, 10] // Septembrie, Octombrie, Noiembrie
+                            };
+                            const lunaCurenta = new Date().getMonth();
+                         
+                            let anotimpCurent;
+                            for (let anotimp in anotimpuri) {
+                                if (anotimpuri[anotimp].includes(lunaCurenta)) {
+                                    anotimpCurent = anotimp;
+                                    break;
+                                }
+                            }
+                            %>
+                     
+                        <%    for (let imagine of locals.imagini) { %>
+                         <%       if (imagine.anotimp && imagine.anotimp.includes(anotimpCurent)) { 
+                            %>
+
+        <% i=i + 1; %>
+        <% //if(i>= 10) { break; }%>
+        <figure>
+            <picture>
+                <div id="imag-d"><img src="<%- imagine.fisier %>"></div>
+                <source media="(max-width:700px)" srcset="<%- imagine.mic %>" />
+                <source media="(max-width:1000px)" srcset="<%- imagine.mediu %>" />
+                <source media="(max-width:2400px)" srcset="<%- imagine.mare %>" />
+            </picture>
+
+
+
+            <% if(imagine.autor) { %>
+            <figcaption><%- imagine.descriere %> by
+                <%- imagine.autor %></figcaption>
+            <% } else { %>
+            <figcaption><%- imagine.descriere %>
+            </figcaption>
+            <% } %>
+        </figure>
+        <div id="gol1"></div>
+        <div id="gol2"></div>
+        <% } %>
+        <% } %>
+    </div>
+</section>

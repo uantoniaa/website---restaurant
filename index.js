@@ -160,16 +160,21 @@ function initImagini(){
 
     let caleAbs=path.join(__dirname,obGlobal.obImagini.cale_galerie);
     let caleAbsMediu=path.join(__dirname,obGlobal.obImagini.cale_galerie, "mediu");
+    let caleAbsMic=path.join(__dirname,obGlobal.obImagini.cale_galerie, "mic");
     if (!fs.existsSync(caleAbsMediu))
         fs.mkdirSync(caleAbsMediu);
-
+    if (!fs.existsSync(caleAbsMic))
+        fs.mkdirSync(caleAbsMic);
     //for (let i=0; i< vErori.length; i++ )
     for (let imag of vImagini){
         [numeFis, ext]=imag.fisier.split(".");
         let caleFisAbs=path.join(caleAbs,imag.fisier);
         let caleFisMediuAbs=path.join(caleAbsMediu, numeFis+".webp");
-        sharp(caleFisAbs).resize(400).toFile(caleFisMediuAbs);
+        let caleFisMicAbs=path.join(caleAbsMic, numeFis+".webp");
+        sharp(caleFisAbs).resize(250).toFile(caleFisMediuAbs);
+        sharp(caleFisAbs).resize(200).toFile(caleFisMicAbs);
         imag.fisier_mediu=path.join("/", obGlobal.obImagini.cale_galerie, "mediu",numeFis+".webp" )
+        imag.fisier_mic=path.join("/", obGlobal.obImagini.cale_galerie, "mic",numeFis+".webp" )
         imag.fisier=path.join("/", obGlobal.obImagini.cale_galerie, imag.fisier )
         //eroare.imagine="/"+obGlobal.obErori.cale_baza+"/"+eroare.imagine;
     }
@@ -194,5 +199,5 @@ function afisareEroare(res, _identificator, _titlu="titlu default", _text, _imag
     
 }
 
-app.listen("5151");
+app.listen("5102");
 console.log("Serverul a pornit");

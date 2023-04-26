@@ -2,38 +2,84 @@
 	"cale_galerie":"resurse/imagini/galerie",
 	"imagini": [
 		{
-			"fisier":"briose-frisca.png",
-			"descriere":"Brioșe",
-			"luni":["martie","februarie","noiembrie"]
+			"fisier":"cheesecake.jpg",
+			"descriere":"Cheesecake",
+			"anotimp":["vara", "toamna", "primavara"],
+			"autor" : "L'incotro"
 		},
 		{
-			"fisier":"clatite.png",
-			"descriere":"Clătite cu dulceață",
-			"luni":["ianuarie","februarie","iunie"]
+			"fisier":"linguine-creveti.jpg",
+			"descriere":"Linguine cu creveți",
+			"anotimp":["iarna", "toamna", "primavara"],
+			"autor" : "L'incotro"
 			
 		},
 		{
-			"fisier":"gogosi.png",
-			"descriere":"Gogoși glazurate",
-			"luni":["ianuarie","noiembrie","iunie","martie"]
+			"fisier":"papanasi.jpg",
+			"descriere":"Papanași cu afine",
+			"anotimp":["vara", "toamna", "primavara"],
+			"autor" : "L'incotro"
 		},
 		{
-			"fisier":"tort-scortisoara.png",
-			"descriere":"Tort cu scorțisoară",
+			"fisier":"paste-carbonara.jpg",
+			"descriere":"Paste carbonara",
+			"anotimp":["vara", "toamna", "primavara"],
+			"autor" : "L'incotro"
+		},
+		{
+			"fisier":"piept-pui-gratar.jpg",
+			"descriere":"Piept de pui la grătar",
+			"anotimp":["vara","iarna","toamna", "primavara"],
+			"autor" : "L'incotro"
+		},
+		{
+			"fisier":"pizza-capriciosa.jpg",
+			"descriere":"Pizza capriciosa",
+			"anotimp":["primavara","iarna","vara"],
+			"autor" : "L'incotro"
+		},
+		{
+			"fisier":"pizza-quattro-stagioni.jpg",
+			"descriere":"Pizza quattro-stagioni",
+			"anotimp":["vara","primavara","toamna","iarna"],
+			"autor" : "L'incotro"
+		},
+		{
+			"fisier":"tagliatelle.jpg",
+			"descriere":"Tagliatelle",
+			"anotimp":["vara","primavara","iarna","toamna"],
+			"autor" : "L'incotro"
+		},
+		{
+			"fisier":"tiramisu.jpg",
+			"descriere":"Linguine cu creveți",
+			"anotimp":["vara", "primavara"],
+			"autor" : "L'incotro"
 			
-			"luni":["noiembrie"]
 		},
 		{
-			"fisier":"prajitura-ciocolata.png",
-			"descriere":"Prăjitură cu ciocolată"
+			"fisier":"vita-gratar.jpg",
+			"descriere":"Mușchi de vită la grătar",
+			"anotimp":["toamna", "primavara"],
+			"autor" : "L'incotro"
 		},
 		{
-			"fisier":"tarta-afine.png",
-			"descriere":"Tartă cu afine"
+			"fisier":"pizza-california.jpg",
+			"descriere":"Pizza California",
+			"anotimp":["toamna", "vara", "primavara"],
+			"autor" : "L'incotro"
 		},
 		{
-			"fisier":"tort-trandafiri.png",
-			"descriere":"Tort special"
+			"fisier":"biban-de-mare.jpg",
+			"descriere":"Biban de mare",
+			"anotimp":["iarna", "primavara"],
+			"autor" : "L'incotro"
+		},
+		{
+			"fisier":"spaghetti-al-pomodoro.jpg",
+			"descriere":"Spaghetti al pomodoro",
+			"anotimp":["toamna", "iarna", "primavara"],
+			"autor" : "L'incotro"
 		}
 	]
 }

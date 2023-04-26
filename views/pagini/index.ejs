@@ -21,7 +21,7 @@
                     <h2>Bun venit pe site-ul restaurantului Gourani! <span class="fas fa-utensils fa-shake"></span></h2>
                     <figure>
                         <picture>
-                   <source media="(max-width: 1000px)" srcset="resurse/imagini/img2.png">
+                            <source media="(max-width: 1000px)" srcset="resurse/imagini/img2.png">
                             <img src="resurse/imagini/img1.png" alt="imagine-sigla">
                         </picture>
                         <figcaption>~Imagine din interiorul restaurantului~</figcaption>
@@ -278,32 +278,11 @@
                             label="English">
                         Your browser does not support the video tag.
                     </video>
-                    <section id="galerie-statica">
-                        <h2>Galerie</h2>
-                        <div id="grid-galerie">
-                            <% for (let imag of locals.imagini) { 
-                                d=new Date()
-                                var v_luni=["ianuarie", "februarie", "martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"]
-                                if(imag.luni && imag.luni.includes(v_luni[d.getMonth()])) {
-                                %>
-                               
-                                    <figure>
-                                        <picture>
-                                            <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
-                                            <img src="<%- imag.fisier %>" alt="imagine">
-                                        </picture>
-                                        <figcaption><%- imag.descriere %></figcaption>
-                                    </figure>
-                        
-                        
-                                    <% }  %>
-                            <% }  %>
-                        </div>
-                        
-                    </section>
+                    <%- include("../fragmente/galerie_statica.ejs") %>
+                    
                 </section>
             </div>
-            
+
             <!--pentru pagina cu meniu-->
             <!-- <section id="meniu">
                 <h2>MENIU</h2>
@@ -500,7 +479,7 @@
             </section> -->
 
         </main>
-        <%- include("../fragmente/galerie_animata.ejs")  %>
+        <!-- <%- include("../fragmente/galerie_animata.ejs")  %> -->
         <%- include("../fragmente/footer.ejs")  %>
     </body>
 
