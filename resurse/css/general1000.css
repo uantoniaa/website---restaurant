@@ -34,3 +34,6 @@ body {
     width: 40%;
     max-width: 100px;
 }
+.flex-container { 
+    margin-top: 8rem;
+}

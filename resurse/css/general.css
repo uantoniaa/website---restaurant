@@ -31,14 +31,13 @@ th {
 }
 
 body {
-    --culoare-princ: #9096FE;
-    --culoare-fundal: #d085ff8a;
-    --culoare-fundal-inchis: #5b54e6;
-    --culoare-mov-f-desc: #aeb1f2;
+    --culoare-princ: #c39beb;
+    --culoare-fundal: #cf95f665;
+    --culoare-fundal-inchis: #6825928a;
     --culoare-mov1: #a097bf;
     --culoare-mov2: #C185FF;
-    --culoare-mov3: #804db4;
-    --culoare-mov-f-inchis: #4941d2;
+    --culoare-mov3: #6b2da9;
+    --culoare-mov-f-inchis: #2e02498a;
     --culoare-text: black;
     --spatiere-pagina: 50px;
     --padding-sectiune: 15px;
@@ -77,7 +76,7 @@ h2 {
         "z-5 z-6 z-6 z-7"
         "z-8 z-8 z-8 z-8"
     ;
-    gap: 20px 20px;
+    gap: 25px 25px;
 }
 
 #grid-pagina>* {
@@ -222,7 +221,6 @@ tbody tr:hover td {
     outline: 5px solid rgba(128, 77, 180, 0.7);
 }
 
-
 /* stilizare taburi */
 .taburi-iframe {
     display: flex;
@@ -231,6 +229,11 @@ tbody tr:hover td {
     min-width: 150px;
     flex-direction: column;
     margin-bottom: -234px;
+    width: 160px;
+    font-size: 13px;
+}
+.flex-container {
+    margin-top: 0;
 }
 
 .taburi-iframe a {
@@ -239,11 +242,8 @@ tbody tr:hover td {
     margin-right: 10px;
     border-radius: 5px;
     border: 4px double var(--culoare-mov-f-inchis);
-    color: var(--culoare-mov-f-inchis);
+    color: var(--culoare-text);
     transition: all 0.5s ease;
-    width: 100px;
-    height: 50px;
-    font-size: 13px;
     overflow: hidden;
     background-color: var(--culoare-princ);
 }
@@ -252,21 +252,20 @@ tbody tr:hover td {
     border: 4px double var(--culoare-mov-f-inchis);
     box-shadow: 0 0 10px var(--culoare-mov2);
     color: var(--culoare-mov-f-inchis);
-    /* transform: scaleX(1.5);
+    /* transform: scaleX(1.3);
     transform-origin: left; */
-    padding-left: 40px;
-    background-color: var(--culoare-mov-f-desc);
+    transition: all 0.5s ease;
+    overflow: hidden;
+    width: 170px;
+    padding-left: 25px;
+    background-color: var(--culoare-mov1);
 }
-/* 
-.flex-container {
-    display: flex;
-    display: inline-block;
-    width: 100%;
-} */
 
+
+/* 
 .taburi-iframe a:last-child {
     margin-right: 0;
-}
+} */
 .flex-iframe iframe {
     border: 7px solid var(--culoare-mov-f-inchis);
 }
@@ -315,7 +314,7 @@ video {
   
   main a {
     text-decoration: none;
-    background-image: radial-gradient(var(--culoare-mov-f-desc) 0%, var(--culoare-mov-f-inchis) 40%, transparent 80%, transparent 100%);
+    background-image: radial-gradient(var(--culoare-mov1) 0%, var(--culoare-mov-f-inchis) 40%, transparent 80%, transparent 100%);
     background-position: center;
     background-size: 0;
     background-repeat: no-repeat;
