@@ -17,6 +17,7 @@
         <main>
             <div id="grid-pagina">
                 <section id="bunvenit">
+
                     <h2>Bun venit pe site-ul restaurantului Gourani! <span class="fas fa-utensils fa-shake"></span></h2>
                     <div id="imagine"></div>
                     <!-- <figure>
@@ -39,20 +40,19 @@
                         vă iese, noi vă așteptăm cu cel mai mare drag:
                     </p>
                     <div class="flex-container">
-                        <div class="taburi-iframe">
-                            <a href="https://www.youtube.com/embed/StpWqVsOlEQ" target="ifr-video2"><b>Paste cu
-                                    trufe</b></a>
-                            <a href="https://www.youtube.com/embed/4aGYw8l9Dh0" target="ifr-video2"><b>Tagliatelle
-                                    Vitello</b></a>
-                            <a href="https://www.youtube.com/embed/7tigRouakaU" target="ifr-video2"><b>Special Canelloni
-                                    </b></a>
-                        </div>
-
                         <div class="flex-iframe">
                             <iframe id="ifr-video2" name="ifr-video2" width="560" height="315"
                                 src="https://www.youtube.com/embed/StpWqVsOlEQ"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
+                        </div>
+                        <div class="taburi-iframe">
+                            <a href="https://www.youtube.com/embed/StpWqVsOlEQ" target="ifr-video2"><b>Paste cu
+                                    trufe</b></a>
+                            <a href="https://www.youtube.com/embed/4aGYw8l9Dh0" target="ifr-video2"><b>Tagliatelle
+                                    </b></a>
+                            <a href="https://www.youtube.com/embed/7tigRouakaU" target="ifr-video2"><b>Canelloni
+                                </b></a>
                         </div>
                     </div>
 
@@ -150,7 +150,6 @@
 
 
                 </section>
-
                 <section id="evenimente">
                     <h2>Evenimente</h2>
                     <p>Vino la Noaptea Ispitelor, singură sau cu ispita ta. Te așteptăm într-o ambianță perfectă pentru
@@ -171,7 +170,6 @@
                             martie 2023</b></a>
 
                 </section>
-
                 <section id="anunturi">
                     <h2>Anunturi</h2>
                     <p>
@@ -192,7 +190,6 @@
 
                     </p>
                 </section>
-
                 <section id="utilizonline">
                     <h2>Utilizatori online <span class="fas fa-duotone fa-users"></span></h2>
 
@@ -219,7 +216,6 @@
                         <li>LauraStanescu</li>
                     </ul>
                 </section>
-
                 <section id="dateutil">
                     <h2>Date despre utilizator & statistici</h2>
                     <ul>
@@ -235,7 +231,6 @@
                         <li>A făcut clic pe butonul "Despre"</li>
                     </ul>
                 </section>
-
                 <section id="siteserver">
                     <h2>Date despre site si server</h2>
                     <ul>
@@ -249,11 +244,11 @@
                     </ul>
 
                 </section>
-
                 <section id="oferte">
                     <div id="titlu-u">
-                    <h2>Oferte</h2>
-                </div>
+                        <h2>Oferte</h2>
+                    </div>
+                    
                     <ul>
                         <li>Vă invităm la restaurantul nostru pentru a experimenta preparatele noastre delicioase!
                             Oferta
@@ -277,6 +272,9 @@
                             label="English">
                         Your browser does not support the video tag.
                     </video>
+                    <br>
+                    <hr>
+                    <br>
                     <%- include("../fragmente/galerie_statica.ejs") %>
 
                 </section>

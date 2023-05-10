@@ -10,7 +10,7 @@ html {
 h1 {
     font-size: 2.5rem;
     text-align: center;
-    
+
 }
 
 h2 {
@@ -223,17 +223,24 @@ tbody tr:hover td {
 
 /* stilizare taburi */
 .taburi-iframe {
+    position: absolute;
+    top: 0;
     display: flex;
     justify-content: center;
-    margin-left: 560px;
-    min-width: 150px;
+    right:5%;
+    /* margin-left: 43.7%; */
+    /* min-width: 150px; */
+    /* margin-bottom: -40.4%; */
     flex-direction: column;
-    margin-bottom: -234px;
-    width: 160px;
+    width: 20%;
     font-size: 13px;
 }
+
 .flex-container {
     margin-top: 0;
+    width: 100%;
+    height: auto;
+    position: relative;
 }
 
 .taburi-iframe a {
@@ -256,17 +263,14 @@ tbody tr:hover td {
     transform-origin: left; */
     transition: all 0.5s ease;
     overflow: hidden;
-    width: 170px;
+    width: 110%;
     padding-left: 25px;
     background-color: var(--culoare-mov1);
 }
 
-
-/* 
-.taburi-iframe a:last-child {
-    margin-right: 0;
-} */
 .flex-iframe iframe {
+    width: 75%;
+    height: 500px;
     border: 7px solid var(--culoare-mov-f-inchis);
 }
 
@@ -274,83 +278,86 @@ tbody tr:hover td {
 caption {
     font-style: italic;
 }
+
 video {
     width: 100%;
     max-width: 700px;
     min-width: 200px;
-  }
+}
 
 
 
-#video-promo{
+#video-promo {
     display: block;
     width: 80%;
     min-width: 320px;
     max-width: 800px;
     margin: auto;
-  }
+}
 
-#video-bord::cue{
+#video-bord::cue {
     font-size: 20px;
     background-color: rgba(255, 255, 255, 0.3);
     color: var(--culoare-mov-f-inchis);
-  }
- 
+}
 
 
- main a:visited {
+
+main a:visited {
     color: var(--culoare-mov3);
-  }
-  
-  main [href^="http"]::before {
+}
+
+main [href^="http"]::before {
     content: "⮳";
     font-size: 150%;
     margin-right: 0.2rem;
-  }
- 
-  main a[href^="http"]:hover::before {
-    color: var(--culoare-mov2); 
-  }
-  
-  main a {
+}
+
+main a[href^="http"]:hover::before {
+    color: var(--culoare-mov2);
+}
+
+main a {
     text-decoration: none;
     background-image: radial-gradient(var(--culoare-mov1) 0%, var(--culoare-mov-f-inchis) 40%, transparent 80%, transparent 100%);
     background-position: center;
     background-size: 0;
     background-repeat: no-repeat;
     transition: all 0.3s ease-out;
-  }
+}
 
 
-  main a:hover {
-    background-size: 100% ;
-  }
+main a:hover {
+    background-size: 100%;
+}
 
- main a:active {
-    border: 2px solid var(--culoare-mov3); 
-  }
-  
+main a:active {
+    border: 2px solid var(--culoare-mov3);
+}
 
-  #text-reflectat{
-	top:100%;
-	transform-origin:0 0;
-	/*conetaza ordinea transformarilor!*/
-	transform: rotateX(180deg) skew(-45deg) scaleY(0.5) translate(10px,-25px); 
-	opacity:0.55;
+
+#text-reflectat {
+    top: 100%;
+    transform-origin: 0 0;
+    /*conetaza ordinea transformarilor!*/
+    transform: rotateX(180deg) skew(-45deg) scaleY(0.5) translate(10px, -25px);
+    opacity: 0.55;
     text-align: center;
 }
 
-#text{	
+#text {
     margin-bottom: 0;
-	position:relative;
+    position: relative;
     padding-bottom: 0;
 
 }
 
-#text, #text-reflectat{
-	font-size:2rem;
+#text,
+#text-reflectat {
+    font-size: 2rem;
     text-align: center;
 }
+
 #titlu-u {
     white-space: nowrap;
     overflow: hidden;
@@ -365,9 +372,23 @@ video {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-100%);
     }
 }
 
+hr {
+    box-shadow: 0 0 5px 5px var(--culoare-mov2);
+    background-color: var(--culoare-mov2);
+    background-image: radial-gradient(white, white, transparent, transparent);
+    opacity: 100;
+    color: transparent;
+    height: 27px;
+    background-size: 27px;
+}
 
+/* hr::before {
+    content: url("../../resurse/imagini/favpng_vector-car.png");
+    margin-left: calc(50% - 81px);
+} */

@@ -22,18 +22,16 @@ body {
     gap: 14px 10px;  
 }
 
-
-/* .taburi-iframe a {
-    width: 100%;
-} */
-.flex-container {
-    width: 45%;
-    max-width: 100px;
+.taburi-iframe {
+    width:20%;
+    font-size: 11px;
+    right: 10%;
 }
-.flex-iframe {
-    width: 40%;
-    max-width: 100px;
+.taburi-iframe a:hover { 
+    width: 110%;
+    padding-left: 12px;
 }
-.flex-container { 
-    margin-top: 8rem;
+.flex-iframe iframe { 
+    width: 70%;
+    height: 400px;
 }

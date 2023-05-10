@@ -20,6 +20,16 @@ body {
     overflow-x: scroll;
     max-width: 100%;
 } 
-.taburi-iframe a {
+.taburi-iframe {
+    width:25%;
+    font-size: 9px;
+    right: 5%;
+}
+.taburi-iframe a:hover { 
+    width: 110%;
+    padding-left: 12px;
+}
+.flex-iframe iframe { 
     width: 70%;
+    height: 250px;
 }
