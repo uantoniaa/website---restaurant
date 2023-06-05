@@ -3,14 +3,28 @@ const fs= require('fs');
 const path=require('path');
 const sharp=require('sharp');
 const sass=require('sass');
+const ejs=require('ejs');
+const {Client} =require('pg');
+
+var client= new Client({database:"site-web",
+        user:"anto",
+        password:"1234",
+        host:"localhost",
+        port:5432});
+client.connect();
+client.query("select * from lab8_16", function(err, rez){
+    console.log("eroare baza de date :", err);
+    console.log("rezultat baza de date:", rez);
+})
+
 obGlobal={
     obErori:null,
     obImagini:null,
     folderScss: path.join(__dirname, "resurse/scss"),
     folderCss: path.join(__dirname, "resurse/css"),
-    folderBackup: path.join(__dirname, "backup")
+    folderBackup: path.join(__dirname, "backup"),
+    optiuniMeniu: []
 }
-
 app = express();
 console.log("Folder proiect", __dirname);
 console.log("Cale fisier", __filename);
@@ -101,6 +115,57 @@ app.get(["/index","/","/home" ], function(req,res){
 
 app.get("/despre" , function(req,res){ 
     res.render("pagini/despre");
+})
+
+app.get("/produse",function(req, res){
+    //console.log(req.query)
+    //TO DO query pentru a selecta toate produsele
+    //TO DO se adauaga filtrarea dupa tipul produsului
+    //TO DO se selecteaza si toate valorile din enum-ul categ_prajitura
+    client.query("select * from unnest(enum_range(null::categ_prajitura))", function(err, rezCategorie){
+        if (err){
+            console.log(err);
+        }
+        else{
+            let conditieWhere="";
+            if(req.query.tip)
+                conditieWhere=` where tip_produs='${req.query.tip}'`  //"where tip='"+req.query.tip+"'"
+            
+
+            client.query("select * from prajituri "+conditieWhere , function( err, rez){
+                console.log(300)
+                if(err){
+                    console.log(err);
+                    afisareEroare(res, 2);
+                }
+                else{
+                    console.log(rez);
+                    res.render("pagini/produse", {produse:rez.rows, optiuni:rezCategorie.rows});
+                }
+            });
+            }
+    });
+
+        
+
+});
+
+app.get("/produs/:id",function(req, res){
+    console.log(req.params);
+   
+    client.query(" TO DO ", function( err, rezultat){
+        if(err){
+            console.log(err);
+            afisareEroare(res, 2);
+        }
+        else
+            res.render("pagini/produs", {prod:""});
+    });
+});
+
+client.query("select * from unnest(enum_range(null::categ_prajitura))",function(err, rez){
+    console.log(err);
+    console.log(rez);
 })
 
 app.get("/*.ejs",function(req, res){
