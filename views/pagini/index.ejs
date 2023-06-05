@@ -9,6 +9,27 @@
         <meta name="description" content="GOURANI - THE PLACE WHERE EVERY DETAIL TELLS A STORY.">
         <%- include("../fragmente/head.ejs")  %>
         <link rel="stylesheet" href="/resurse/css/galerie-animata.css" type="text/css" />
+        <script>
+
+            window.onload = function () {
+                meniu = document.getElementsByTagName("nav")[0];
+
+                //selectez submeniurile
+                submeniuri = meniu.querySelectorAll("ul.meniu ul");
+                for (let subm of submeniuri) {
+
+                }
+
+                window.onresize = function () {
+                    if (window.innerWidth > 650) {
+
+                        document.getElementById("ch-menu").checked = false;
+
+                    }
+                }
+
+            }
+        </script>
     </head>
 
     <body>
@@ -21,7 +42,7 @@
                     <h2>Bun venit pe site-ul restaurantului Gourani! <span class="fas fa-utensils fa-shake"></span></h2>
                     <div id="imagine"></div>
                     <br>
-                    
+                    <button id="tema" class="btn btn-primary">Schimba tema</button>
                     <!-- <figure>
                         <picture>
                             <source media="(max-width: 1000px)" srcset="resurse/imagini/img2.png">
@@ -52,7 +73,7 @@
                             <a href="https://www.youtube.com/embed/StpWqVsOlEQ" target="ifr-video2"><b>Paste cu
                                     trufe</b></a>
                             <a href="https://www.youtube.com/embed/4aGYw8l9Dh0" target="ifr-video2"><b>Tagliatelle
-                                    </b></a>
+                                </b></a>
                             <a href="https://www.youtube.com/embed/7tigRouakaU" target="ifr-video2"><b>Canelloni
                                 </b></a>
                         </div>
@@ -220,37 +241,75 @@
                 </section>
                 <section id="dateutil">
                     <h2>Date despre utilizator & statistici</h2>
-                    <ul>
-                        <li>Nume utilizator: JohnSmith123</li>
-                        <li>Gen: Bărbat</li>
-                        <li>Vârstă: 30 de ani</li>
-                        <li>Ocupație: Designer grafic</li>
-                        <li>A vizitat pagina de șapte ori </li>
-                        <li>Ip: <%- locals.ip%> </li>
-                        <li>A distribuit meniul restaurantului</li>
-                        <li>A petrecut în medie 3 minute pe pagină ă</li>
-                        <li>A vizualizat meniul de șase ori în total</li>
-                        <li>A făcut clic pe butonul "Despre"</li>
-                    </ul>
+
+                    <% if(!locals.utilizator) { %>
+                        <form id="form_inreg" method="post" class="date" action="/login"
+                            enctype="multipart/form-data">
+                            <p>
+                                <label>
+                                    Username: <input type="text" name="username" id="inp-username" value=""
+                                        required">
+                                </label>
+                            </p>
+                            <p>
+                                <label>
+                                    Parola: <input id="parl" type="password" required name="parola" value="">
+                                </label>
+                            </p>
+                            <p><input type="submit" value="Logare"></p>
+                        </form>
+                        <p><%- locals.eroareLogin %></p>
+                        <% } else {%>
+                        <%- locals.succesLogin %>
+                        <% }  %>
+                        
                 </section>
                 <section id="siteserver">
                     <h2>Date despre site si server</h2>
-                    <ul>
-                        <li>Numele de domeniu: www.gourani.com</li>
-                        <li>Gazdă server: ... Web Services</li>
-                        <li>Locație server: Regiunea Europa de Est (Bucuresti)</li>
-                        <li>Sistem de operare server: Windows 11 </li>
-                        <li>Limbaje de programare utilizate pentru dezvoltarea site-ului: JavaScript, HTML, CSS</li>
-                        <li>Capacitatea serverului: 1000 de utilizatori simultan</li>
-                        <li>Timpul mediu de încărcare a paginii: 2,5 secunde</li>
-                    </ul>
+                
+                    <%
+                    dataServer=new Date();
+                    sirData=dataServer.getHours()+":"+dataServer.getMinutes()+":"+dataServer.getSeconds()
+                
+                    %>
+                    <p>Pe localhost vor fi identice; se va observa diferența pe Heroku</p>
+                    <p>Ora server:<span id="data_server"><%= sirData %></span></p>
+                    <p>Ora client:<span id="data_client"></span></p>
+                    <script>
+                        function zero(nr){
+                            if (nr<10) return "0"+nr;
+                            return nr;
+                        }
+                        
+                        d=new Date()
+                        document.getElementById("data_client").innerHTML=zero(d.getHours())+":"+zero(d.getMinutes())+":"+zero(d.getSeconds());
+                
+                        function actualizeazaElemData(id_div){
+                            var data_div=document.getElementById(id_div);
+                            if (data_div.innerHTML!="")
+                            {
+                                var timp=data_div.innerHTML.split(":")
+                                var dt=new Date(2000,1,15, timp[0],timp[1], timp[2] );//nu conteaza data (am pus valori random pentru an, luna si zi) ci timpul
+                            }
+                            else
+                                var dt=new Date();
+                            dt.setSeconds(dt.getSeconds()+1)
+                            data_div.innerHTML=zero(dt.getHours())+":"+zero(dt.getMinutes())+":"+zero(dt.getSeconds());
+                        }
+                        function actualizeazaData(){
+                            actualizeazaElemData("data_client");
+                            actualizeazaElemData("data_server");
+                        }
+                        actualizeazaData()
+                        setInterval(actualizeazaData,1000)
+                    </script>
 
                 </section>
                 <section id="oferte">
                     <div id="titlu-u">
                         <h2>Oferte</h2>
                     </div>
-                    
+
                     <ul>
                         <li>Vă invităm la restaurantul nostru pentru a experimenta preparatele noastre delicioase!
                             Oferta

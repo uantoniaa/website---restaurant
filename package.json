@@ -1,17 +1,25 @@
 {
   "dependencies": {
     "bootstrap": "^5.2.3",
+    "crypto": "^1.0.1",
     "ejs": "^3.1.9",
     "expres": "^0.0.5",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "formidable": "^2.1.1",
     "fs": "^0.0.1-security",
+    "helmet": "^7.0.0",
+    "mongodb": "^5.6.0",
     "nodemailer": "^6.9.3",
     "path": "^0.12.7",
     "pg": "^8.11.0",
+    "puppeteer": "^20.5.0",
+    "qrcode": "^1.5.3",
+    "request": "^2.88.2",
     "sass": "^1.62.1",
     "scss": "^0.2.4",
-    "sharp": "^0.32.0"
+    "sharp": "^0.32.0",
+    "xml-js": "^1.6.11"
   },
   "name": "gourani",
   "version": "1.0.0",
