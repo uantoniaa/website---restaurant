@@ -14,7 +14,7 @@ async function creareGraficExemplu() {
     marti:20,
     miercuri:15,
     joi:10,
-    vineri:8,
+    sucurieri:8,
     sambata:2,
     duminica:15
   }

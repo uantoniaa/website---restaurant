@@ -22,7 +22,7 @@ const xmljs=require('xml-js');
 const request=require("request");
 
 AccesBD.getInstanta().select(
-    {tabel:"prajituri", 
+    {tabel:"preparate", 
     campuri:["nume", "pret", "calorii"], 
     conditiiAnd:["pret>7"]}, 
     function (err, rez){
@@ -38,7 +38,7 @@ var client= new Client({database:"site-web",
         host:"localhost",
         port:5432});
 client.connect();
-client.query("select * from lab8_16", function(err, rez){
+client.query("select * from preparate", function(err, rez){
     console.log("eroare baza de date :", err);
     console.log("rezultat baza de date:", rez);
 })
@@ -55,7 +55,7 @@ obGlobal={
     clientMongo:mongodb.MongoClient,
     bdMongo:null
 }
-client.query("select * from unnest(enum_range(null::tipuri_produse))", function(err, rezCategorie){
+client.query("select * from unnest(enum_range(null::tip_produse))", function(err, rezCategorie){
     if (err){
         console.log(err);
     }
@@ -181,8 +181,8 @@ app.get("/produse",function(req, res){
     //console.log(req.query)
     //TO DO query pentru a selecta toate produsele
     //TO DO se adauaga filtrarea dupa tipul produsului
-    //TO DO se selecteaza si toate valorile din enum-ul categ_prajitura
-    client.query("select * from unnest(enum_range(null::categ_prajitura))", function(err, rezCategorie){
+    //TO DO se selecteaza si toate valorile din enum-ul categ_produs
+    client.query("select * from unnest(enum_range(null::categ_produs))", function(err, rezCategorie){
         if (err){
             console.log(err);
         }
@@ -192,7 +192,7 @@ app.get("/produse",function(req, res){
                 conditieWhere=` where tip_produs='${req.query.tip}'`  //"where tip='"+req.query.tip+"'"
             
 
-            client.query("select * from prajituri "+conditieWhere , function( err, rez){
+            client.query("select * from preparate "+conditieWhere , function( err, rez){
                 console.log(300)
                 if(err){
                     console.log(err);
@@ -215,8 +215,8 @@ app.get("/produse",function(req, res){
 app.post("/produse_cos",function(req, res){
     console.log(req.body);
     if(req.body.ids_prod.length!=0){
-        //TO DO : cerere catre AccesBD astfel incat query-ul sa fi `select nume, descriere, pret, gramaj, imagine from prajituri where id in (lista de id-uri)`
-        AccesBD.getInstanta().select({tabel:"prajituri", campuri:"nume,descriere,pret,gramaj,imagine".split(","),conditiiAnd:[`id in (${req.body.ids_prod})`]},
+        //TO DO : cerere catre AccesBD astfel incat query-ul sa fi `select nume, descriere, pret, gramaj, imagine from preparate where id in (lista de id-uri)`
+        AccesBD.getInstanta().select({tabel:"preparate", campuri:"nume,descriere,pret,gramaj,imagine".split(","),conditiiAnd:[`id in (${req.body.ids_prod})`]},
         function(err, rez){
             if(err)
                 res.send([]);
@@ -235,7 +235,7 @@ cale_qr=__dirname+"/resurse/imagini/qrcode";
 if (fs.existsSync(cale_qr))
   fs.rmSync(cale_qr, {force:true, recursive:true});
 fs.mkdirSync(cale_qr);
-client.query("select id from prajituri", function(err, rez){
+client.query("select id from preparate", function(err, rez){
     for(let prod of rez.rows){
         let cale_prod=obGlobal.protocol+obGlobal.numeDomeniu+"/produs/"+prod.id;
         //console.log(cale_prod);
@@ -263,7 +263,7 @@ app.post("/cumpara",function(req, res){
     console.log("Drept:", req?.utilizator?.areDreptul?.(Drepturi.cumparareProduse));
     if (req?.utilizator?.areDreptul?.(Drepturi.cumparareProduse)){
         AccesBD.getInstanta().select({
-            tabel:"prajituri",
+            tabel:"preparate",
             campuri:["*"],
             conditiiAnd:[`id in (${req.body.ids_prod})`]
         }, function(err, rez){
@@ -569,7 +569,7 @@ app.get("/cod/:username/:token",function(req,res){
 app.get("/produs/:id",function(req, res){
     console.log(req.params);
     
-    client.query(`select * from prajituri where id=${req.params.id}`, function( err, rezultat){
+    client.query(`select * from preparate where id=${req.params.id}`, function( err, rezultat){
         if(err){
             console.log(err);
             afisareEroare(res, 2);
@@ -579,7 +579,7 @@ app.get("/produs/:id",function(req, res){
     });
 });
 
-client.query("select * from unnest(enum_range(null::categ_prajitura))",function(err, rez){
+client.query("select * from unnest(enum_range(null::categ_produs))",function(err, rez){
     console.log(err);
     console.log(rez);
 })
