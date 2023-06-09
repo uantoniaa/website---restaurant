@@ -17,11 +17,11 @@ body {
     margin: 0;
 }
 
-ul.menius {
+ul.meniu {
     display: none;
 }
 
-#ch-menu:checked+ul.menius {
+#ch-menu:checked+ul.meniu {
     display: block;
     animation-name: animatie_meniu;
     animation-duration: 1s;
@@ -52,7 +52,7 @@ ul.menius {
     }
 }
 
-ul.menius li:hover div {
+ul.meniu li:hover div {
     /*pentru alea principale*/
     text-shadow: none;
     transition: none;

@@ -156,7 +156,7 @@ window.addEventListener("load", function(){
   })
   .then(function(raspuns){ return raspuns.json()})
   .then(function(obIngrediente){
-    let radReact=ReactDOM.createRoot(document.getElementById("creare-prajitura"));
+    let radReact=ReactDOM.createRoot(document.getElementById("creare-preparat"));
     radReact.render(React.createElement(GrupIngrediente,{json:obIngrediente}))
   })
 })
