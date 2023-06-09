@@ -32,6 +32,7 @@ ul.meniu {
   margin: 0;
   list-style-type: none;
 }
+
 ul.meniu ul {
   padding: 0;
   margin: 0;
@@ -45,6 +46,7 @@ ul.meniu ul {
   left: 0;
   width: 100%;
 }
+
 ul.meniu li {
   width: var(--latime-buton);
   height: var(--inaltime-meniu);
@@ -55,24 +57,29 @@ ul.meniu li {
   box-sizing: border-box;
   position: relative;
 }
+
 ul.meniu li:hover {
   overflow: visible;
   background-color: var(--culoare-mov-f-desc);
   transition: background-color 0.3s linear;
 }
+
 ul.meniu li:hover ul {
   opacity: 1;
   transform: scaleY(1);
 }
+
 ul.meniu li:hover a {
   color: var(--text-meniu);
   transition: all 0.3s linear;
 }
+
 ul.meniu li:hover div {
   text-shadow: 0px 0px 0px black;
   transition: text-shadow 1s ease-in-out;
 }
-ul.meniu li div {
+
+ul.meniu li div, ul.meniu li a {
   display: block;
   width: 100%;
   height: 100%;
@@ -81,38 +88,39 @@ ul.meniu li div {
   font-weight: bold;
   line-height: var(--inaltime-meniu);
   position: relative;
+}
+
+ul.meniu li div {
   text-shadow: 0px -18px 0px transparent;
   transition: text-shadow 0.3s ease-in-out;
 }
-ul.meniu li a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: var(--text-meniu);
-  text-decoration: none;
-  font-weight: bold;
-  line-height: var(--inaltime-meniu);
-  position: relative;
-}
+
 ul.meniu > li {
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: var(--latime-buton);
-}
-ul.meniu a:hover {
-  text-decoration: underline;
 }
 
 .fas.fa-utensils.fa-shake {
   z-index: 0;
 }
 
-#autentificare a {
-  text-decoration: none;
-}
-
 #acasa-mediu {
   display: none;
 }
 
-/*# sourceMappingURL=nav.css.map */
+ul.meniu a:hover {
+  text-decoration: underline;
+}
+#despre a:hover, #inregistrare a:hover, #cos-virtual a:hover{
+  text-decoration: none;
+}
+
+#acasa:hover, #produse:hover {
+  text-shadow: none;
+  transition: none;
+}
+
+ul.meniu li:hover {
+  background-color: var(--culoare-mov1);
+}

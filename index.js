@@ -160,12 +160,12 @@ app.set("view engine","ejs");
 app.use("/node_modules",express.static(__dirname+"/node_modules"))
 app.use("/resurse", express.static(__dirname+"/resurse"));
 
-app.use(/^\/resurse(\/[a-zA-Z0-9]*)*$/, function(req,res){
+app.use(/^\/resurse(\/[a-zA-Z0-9]*)*$/, function(_req,res){
     afisareEroare(res,403);
 });
 
 
-app.get("/favicon.ico", function(req,res){
+app.get("/favicon.ico", function(_req,res){
     res.sendFile(__dirname+"/resurse/imagini/favicon.ico");
 })
 
@@ -173,7 +173,7 @@ app.get(["/index","/","/home" ], function(req,res){
     res.render("pagini/index", {ip: req.ip, imagini: obGlobal.obImagini.imagini});
 })
 
-app.get("/despre" , function(req,res){ 
+app.get("/despre" , function(_req,res){ 
     res.render("pagini/despre");
 })
 
@@ -235,7 +235,7 @@ cale_qr=__dirname+"/resurse/imagini/qrcode";
 if (fs.existsSync(cale_qr))
   fs.rmSync(cale_qr, {force:true, recursive:true});
 fs.mkdirSync(cale_qr);
-client.query("select id from preparate", function(err, rez){
+client.query("select id from preparate", function(_err, rez){
     for(let prod of rez.rows){
         let cale_prod=obGlobal.protocol+obGlobal.numeDomeniu+"/produs/"+prod.id;
         //console.log(cale_prod);
@@ -293,7 +293,7 @@ app.post("/cumpara",function(req, res){
                     produse:rez.rows
                 }
                 if(obGlobal.bdMongo){
-                    obGlobal.bdMongo.collection("facturi").insertOne(jsonFactura, function (err, rezmongo){
+                    obGlobal.bdMongo.collection("facturi").insertOne(jsonFactura, function (err, _rezmongo){
                         if (err) console.log(err)
                         else console.log ("Am inserat factura in mongodb");
 
@@ -322,8 +322,8 @@ app.get("/grafice", function(req,res){
 
 })
 
-app.get("/update_grafice",function(req,res){
-    obGlobal.bdMongo.collection("facturi").find({}).toArray(function(err, rezultat) {
+app.get("/update_grafice",function(_req,res){
+    obGlobal.bdMongo.collection("facturi").find({}).toArray(function(_err, rezultat) {
         res.send(JSON.stringify(rezultat));
     });
 })
@@ -337,7 +337,7 @@ app.post("/inregistrare",function(req, res){
     var username;
     var poza;
     var formular= new formidable.IncomingForm()
-    formular.parse(req, function(err, campuriText, campuriFisier ){//4
+    formular.parse(req, function(_err, campuriText, campuriFisier ){//4
         console.log("Inregistrare:",campuriText);
 
         console.log(campuriFisier);
@@ -354,7 +354,7 @@ app.post("/inregistrare",function(req, res){
             utilizNou.parola=campuriText.parola;
             utilizNou.culoare_chat=campuriText.culoare_chat;
             utilizNou.poza= poza;
-            Utilizator.getUtilizDupaUsername(campuriText.username, {}, function(u, parametru ,eroareUser ){
+            Utilizator.getUtilizDupaUsername(campuriText.username, {}, function(_u, _parametru ,eroareUser ){
                 if (eroareUser==-1){//nu exista username-ul in BD
                     utilizNou.salvareUtilizator();
                 }
@@ -419,7 +419,7 @@ app.post("/login",function(req, res){
     var username;
     console.log("ceva");
     var formular= new formidable.IncomingForm()
-    formular.parse(req, function(err, campuriText, campuriFisier ){
+    formular.parse(req, function(_err, campuriText, _campuriFisier ){
         Utilizator.getUtilizDupaUsername (campuriText.username,{
             req:req,
             res:res,
@@ -453,7 +453,7 @@ app.post("/profil", function(req, res){
     }
     var formular= new formidable.IncomingForm();
  
-    formular.parse(req,function(err, campuriText, campuriFile){
+    formular.parse(req,function(_err, campuriText, _campuriFile){
        
         var parolaCriptata=Utilizator.criptareParola(campuriText.parola);
         // AccesBD.getInstanta().update(
@@ -519,9 +519,9 @@ app.post("/sterge_utiliz", function(req, res){
     if(req?.utilizator?.areDreptul?.(Drepturi.stergereUtilizatori)){
         var formular= new formidable.IncomingForm();
  
-        formular.parse(req,function(err, campuriText, campuriFile){
+        formular.parse(req,function(_err, campuriText, _campuriFile){
            
-                AccesBD.getInstanta().delete({tabel:"utilizatori", conditiiAnd:[`id=${campuriText.id_utiliz}`]}, function(err, rezQuery){
+                AccesBD.getInstanta().delete({tabel:"utilizatori", conditiiAnd:[`id=${campuriText.id_utiliz}`]}, function(err, _rezQuery){
                 console.log(err);
                 res.redirect("/useri");
             });
@@ -545,7 +545,7 @@ app.get("/logout", function(req, res){
 app.get("/cod/:username/:token",function(req,res){
     console.log(req.params);
     try {
-        Utilizator.getUtilizDupaUsername(req.params.username,{res:res,token:req.params.token} ,function(u,obparam){
+        Utilizator.getUtilizDupaUsername(req.params.username,{res:res,token:req.params.token} ,function(_u,obparam){
             AccesBD.getInstanta().update(
                 {tabel:"utilizatori",
                 campuri:{confirmat_mail:'true'}, 
@@ -584,7 +584,7 @@ client.query("select * from unnest(enum_range(null::categ_produs))",function(err
     console.log(rez);
 })
 
-app.get("/*.ejs",function(req, res){
+app.get("/*.ejs",function(_req, res){
     afisareEroare(res,400);
 })
 app.get("/*",function(req, res){
@@ -619,7 +619,7 @@ function initErori(){
         eroare.imagine="/"+obGlobal.obErori.cale_baza+"/"+eroare.imagine;
     }
 }
-app.get("*/galerie-animata.css",function(req, res){
+app.get("*/galerie-animata.css",function(_req, res){
 
     var sirScss=fs.readFileSync(__dirname+"/resurse/scss_ejs/galerie_animata.scss").toString("utf8");
     var culori=["navy","black","purple","grey"];
@@ -643,7 +643,7 @@ app.get("*/galerie-animata.css",function(req, res){
     }
 });
 
-app.get("*/galerie-animata.css.map",function(req, res){
+app.get("*/galerie-animata.css.map",function(_req, res){
     res.sendFile(path.join(__dirname,"temp/galerie-animata.css.map"));
 });
 
