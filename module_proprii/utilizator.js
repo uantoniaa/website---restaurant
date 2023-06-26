@@ -12,7 +12,7 @@ class Utilizator{
     static parolaCriptare="tehniciweb";
     static emailServer="test.tweb.node@gmail.com";
     static lungimeCod=64;
-    static numeDomeniu="localhost:8080";
+    static numeDomeniu="localhost:5105";
     #eroare;
 
     constructor({id, username, nume, prenume, email, parola, rol, culoare_chat="black", poza}={}) {

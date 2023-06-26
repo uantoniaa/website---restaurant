@@ -4,13 +4,13 @@
 		{
 			"fisier":"cheesecake.jpg",
 			"descriere":"Cheesecake",
-			"anotimp":["vara", "toamna", "primavara"],
+			"anotimp":["vara", "toamna"],
 			"autor" : "L'incotro"
 		},
 		{
 			"fisier":"linguine-creveti.jpg",
 			"descriere":"Linguine cu creveți",
-			"anotimp":["iarna", "toamna", "primavara"],
+			"anotimp":["iarna", "toamna", "vara"],
 			"autor" : "L'incotro"
 			
 		},
@@ -23,13 +23,13 @@
 		{
 			"fisier":"paste-carbonara.jpg",
 			"descriere":"Paste carbonara",
-			"anotimp":["vara", "toamna", "primavara"],
+			"anotimp":["vara", "iarna", "primavara"],
 			"autor" : "L'incotro"
 		},
 		{
 			"fisier":"piept-pui-gratar.jpg",
 			"descriere":"Piept de pui la grătar",
-			"anotimp":["vara","iarna","toamna", "primavara"],
+			"anotimp":["vara","toamna", "primavara"],
 			"autor" : "L'incotro"
 		},
 		{
@@ -52,7 +52,7 @@
 		},
 		{
 			"fisier":"tiramisu.jpg",
-			"descriere":"Linguine cu creveți",
+			"descriere":"Tiramisu",
 			"anotimp":["vara", "primavara"],
 			"autor" : "L'incotro"
 			
@@ -60,7 +60,7 @@
 		{
 			"fisier":"vita-gratar.jpg",
 			"descriere":"Mușchi de vită la grătar",
-			"anotimp":["toamna", "primavara"],
+			"anotimp":["toamna", "vara"],
 			"autor" : "L'incotro"
 		},
 		{
@@ -72,13 +72,13 @@
 		{
 			"fisier":"biban-de-mare.jpg",
 			"descriere":"Biban de mare",
-			"anotimp":["iarna", "primavara"],
+			"anotimp":["iarna", "vara"],
 			"autor" : "L'incotro"
 		},
 		{
 			"fisier":"spaghetti-al-pomodoro.jpg",
 			"descriere":"Spaghetti al pomodoro",
-			"anotimp":["toamna", "iarna", "primavara"],
+			"anotimp":["toamna", "iarna", "vara"],
 			"autor" : "L'incotro"
 		}
 	]

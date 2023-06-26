@@ -1,6 +1,5 @@
 CREATE TYPE roluri AS ENUM('admin', 'moderator', 'comun');
 
-
 CREATE TABLE IF NOT EXISTS utilizatori (
    id serial PRIMARY KEY,
    username VARCHAR(50) UNIQUE NOT NULL,
@@ -23,4 +22,3 @@ CREATE TABLE IF NOT EXISTS accesari (
    pagina VARCHAR(500) NOT NULL,
    data_accesare TIMESTAMP DEFAULT current_timestamp
 );
-

@@ -51,10 +51,11 @@ obGlobal={
     folderBackup: path.join(__dirname, "backup"),
     optiuniMeniu:[], 
     protocol:"http://",
-    numeDomeniu:"localhost:8080",
+    numeDomeniu:"localhost:5105",
     clientMongo:mongodb.MongoClient,
     bdMongo:null
 }
+
 client.query("select * from unnest(enum_range(null::tip_produse))", function(err, rezCategorie){
     if (err){
         console.log(err);
@@ -70,14 +71,14 @@ console.log("Cale fisier", __filename);
 console.log("Director de lucru", process.cwd());
 
 var url = "mongodb://localhost:27017";//pentru versiuni mai vechi de Node
-var url = "mongodb://0.0.0.0:27017";
+var url = "mongodb://0.0.0.0:27017"; 
 
-obGlobal.clientMongo.connect(url, function(err, bd) {
-    if (err) console.log(err);
-    else{
-        obGlobal.bdMongo = bd.db("proiect_web");
-    }
-});
+// obGlobal.clientMongo.connect(url, function(err, bd) {
+//     if (err) console.log(err);
+//     else{
+//         obGlobal.bdMongo = bd.db("proiect_web");
+//     }
+// });
 
 
 app.use(session({ // aici se creeaza proprietatea session a requestului (pot folosi req.session)
@@ -159,10 +160,10 @@ app.use(["/contact"], express.urlencoded({extended:true}));
 app.set("view engine","ejs");
 app.use("/node_modules",express.static(__dirname+"/node_modules"))
 app.use("/resurse", express.static(__dirname+"/resurse"));
-
+//stil cerere catre server
 app.use(/^\/resurse(\/[a-zA-Z0-9]*)*$/, function(_req,res){
     afisareEroare(res,403);
-});
+}); //pentru afisarea erorii 403 cand se incearca accesarea altor fisiere din resurse
 
 
 app.get("/favicon.ico", function(_req,res){
@@ -587,28 +588,6 @@ client.query("select * from unnest(enum_range(null::categ_produs))",function(err
 app.get("/*.ejs",function(_req, res){
     afisareEroare(res,400);
 })
-app.get("/*",function(req, res){
-    try{
-        res.render("pagini"+req.url, function(err, rezRandare){
-            if(err){
-                console.log(err);
-                if(err.message.startsWith("Failed to lookup view"))
-                //afisareEroare(res,{_identificator:404, _titlu:"ceva"});
-                    afisareEroare(res,404);
-                else
-                    afisareEroare(res);
-            }
-            else{
-                res.send(rezRandare);
-            }
-        } );
-    } catch(err){
-        if(err.message.startsWith("Cannot find module"))
-            afisareEroare(res,404);
-        else
-            afisareEroare(res);
-    }
-})
 
 
 function initErori(){
@@ -646,6 +625,28 @@ app.get("*/galerie-animata.css",function(_req, res){
 app.get("*/galerie-animata.css.map",function(_req, res){
     res.sendFile(path.join(__dirname,"temp/galerie-animata.css.map"));
 });
+app.get("/*",function(req, res){
+    try{
+        res.render("pagini"+req.url, function(err, rezRandare){
+            if(err){
+                console.log(err);
+                if(err.message.startsWith("Failed to lookup view"))
+                //afisareEroare(res,{_identificator:404, _titlu:"ceva"});
+                    afisareEroare(res,404);
+                else
+                    afisareEroare(res);
+            }
+            else{
+                res.send(rezRandare);
+            }
+        } );
+    } catch(err){
+        if(err.message.startsWith("Cannot find module"))
+            afisareEroare(res,404);
+        else
+            afisareEroare(res);
+    }
+})
 
 initErori();
 function initImagini(){

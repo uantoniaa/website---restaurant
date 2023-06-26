@@ -33,7 +33,7 @@
 
     <body>
         <%- include("../fragmente/header.ejs")  %>
-
+        <p id="watermark"></p>
         <main>
             <div id="grid-pagina">
                 <section id="bunvenit">
@@ -174,7 +174,7 @@
                 </section>
                 <section id="evenimente">
                     <h2>Evenimente</h2>
-                    <p>sucurio la Noaptea Ispitelor, singură sau cu ispita ta. Te așteptăm într-o ambianță perfectă pentru
+                    <p>Vino la Noaptea Ispitelor, singură sau cu ispita ta. Te așteptăm într-o ambianță perfectă pentru
                         a te
                         lăsa ispitită de ritmul muzicii,
                         de baieții de la Flamingo Boys și culorile cocktail-urilor amețitoare.<br>
@@ -240,7 +240,7 @@
                 </section>
                 <section id="dateutil">
                     <h2>Date despre utilizator & statistici</h2>
-
+                    <p>Ip: <%- locals.ip%></p>
                     <% if(!locals.utilizator) { %>
                         <form id="form_inreg" method="post" class="date" action="/login"
                             enctype="multipart/form-data">
@@ -336,7 +336,38 @@
                     <hr>
                     <br>
                     <%- include("../fragmente/galerie_statica.ejs") %>
-
+                    <br>
+                    <br>
+                    <section id="intrbfrec">
+                        <h4>Întrebări frecvente:</h4>
+                        <details>
+        
+                            <summary>Aveți opțiuni vegetariane/vegane pe meniu?</summary>
+                            <p>Da, avem opțiuni vegetariene/vegane pe meniul nostru. Vă rugăm să verificați meniul nostru online
+                                pentru a vedea opțiunile disponibile.</p>
+                        </details>
+        
+                        <details>
+                            <summary>Este necesară o rezervare?</summary>
+                            <p>Recomandăm rezervările pentru a vă asigura că aveți locuri disponibile în timpul vizitei dvs. la
+                                restaurant. Puteți face o rezervare prin telefonul
+                                afișat.</p>
+                        </details>
+        
+                        <details>
+                            <summary>Acceptați plăți cu cardul?</summary>
+                            <p>Da, acceptăm plăți cu cardul. Acceptăm, de asemenea, și plăți cash.</p>
+                        </details>
+        
+                        <details>
+                            <summary>
+                                Aveți o terasă sau o zonă de luat masa în aer liber?
+                            </summary>
+                            <p>Da, avem o terasă disponibilă pentru clienții noștri. Vă rugăm să ne sunați sau să faceți o
+                                rezervare online pentru a vă asigura că aveți
+                                locuri disponibile în aer liber.</p>
+                        </details>
+                    </section>
                 </section>
             </div>
 
@@ -531,7 +562,7 @@
                 </section>
             </section>
             <section id="inregistrare">
-                <h2>inregistrare</h2>
+                <h2>INREGISTRARE</h2>
                 <p>Conectare<br>Nu aveți cont? Înregistrare</p>
             </section> -->
 

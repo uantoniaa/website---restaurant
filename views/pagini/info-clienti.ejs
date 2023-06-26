@@ -84,7 +84,7 @@
 							<rect id="umplutura_dr" width="100%" height="100%" filter="url(#coolEffect)"/>
 						  </pattern>
 					</defs>
-					<!-- folosesc un filtru de marire (pentru a mari cireasa de pe prajitura)-->
+					<!-- folosesc un filtru de marire (pentru a mari cireasa de pe preparat)-->
 					<filter id="dil">
 						<feMorphology in="SourceGraphic" operator="dilate" radius="1.3">
 						</feMorphology>    
@@ -119,9 +119,9 @@
 						var info=document.getElementById("explicatii");
 						if(!info) {
 						  let p=document.createElement("p");
-						  p.innerHTML=document.querySelector("#svg_prajitura desc").innerHTML
-						  let prajitura=document.getElementById("svg_prajitura");
-						  prajitura.parentNode.insertBefore(p, prajitura.nextSibling);
+						  p.innerHTML=document.querySelector("#svg_preparat desc").innerHTML
+						  let preparat=document.getElementById("svg_preparat");
+						  preparat.parentNode.insertBefore(p, preparat.nextSibling);
 						  p.id="explicatii";
 						}
 					  }
@@ -129,7 +129,7 @@
 						console.log(elem);
 						var xmlns = "http://www.w3.org/2000/svg";
 						var textNou = document.createElementNS(xmlns, "text");//creez un tag <text>
-						var continut = document.createTextNode("Prajitura"); //creez un textNode cu stringul Prajitura
+						var continut = document.createTextNode("preparat"); //creez un textNode cu stringul preparat
 						textNou.appendChild(continut); //adaug continutul in tagul <text>
 				  
 						//setez pozitia pentru elementul <text>  
@@ -150,11 +150,11 @@
 					  }
 					  // ]]>
 					</script>
-					<title>O prajitura realista si bine desenata. Parol!</title>
+					<title>Un preparat realist si bine desenat. Parol!</title>
 					<desc>
-					  Autor: Irina Ciocan<br/>
-					  Grupa: 112-prof<br/>
-					  Descriere: O prajitura interactiva
+					  Autor: Antonia Ungureanu<br/>
+					  Grupa: 261<br/>
+					  Descriere: Un preparat interactiv
 					  <ul>
 						<li>faceti click pe cireasa</li>
 						<li>veniti cu cursorul pe blat</li>

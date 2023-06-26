@@ -1,9 +1,12 @@
 <!DOCTYPE html>
+<!-- Adăugați în fișier doctype și setați limba documentului în tagul html -->
 <html lang="ro">
 
     <head>
         <title>Restaurantul Gourani</title>
         <meta charset="UTF-8">
+        <!-- Adaugati un title corespunzător conținutului textului. Folosiți 4 taguri meta relevante
+             pentru a specifica: charset-ul, autorul, cuvintele cheie, descrierea. -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="keywords"
             content="restaurant Gourani,restaurant Bucuresti,meniu restaurant,paste,grill,salate,pizza,sosuri,desert,aperitive,bauturi,mancare,sucuri,cafea,bere,cocktail,eveniment restaurant,meniu restaurant">
@@ -15,6 +18,8 @@
         <link rel="stylesheet" href="resurse/css/general.css" type="text/css" />
         <link rel="manifest" href="resurse/ico/site.webmanifest">
         <link rel="mask-icon" href="resurse/ico/safari-pinned-tab.svg" color="#5bbad5">
+        <!-- Pentru favicon transparent, trebuie sa setati si o culoare a tile-ului (de background), care trebuie specificata și în tagul meta: <meta name="msapplication-TileColor" content="...culoarea aleasa de voi..."> -->
+
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,6 +42,8 @@
     </head>
 
     <body>
+        <!-- Folosiți în header h1 pentru titlul site-ului.  -->
+
         <header class="c1" id="h1">
             <h1>GOURANI</h1>
         </header>
@@ -126,6 +133,7 @@
                         că vreți să le încercați dvs., iar dacă nu
                         vă iese, noi vă așteptăm cu cel mai mare drag:
                     </p>
+                    <!-- minim două linkuri care se deschid într-un iframe (se poate face ca în exemplul de curs, linkuri care deschid videoclipuri relevante de pe youtube în iframe). Atentie nu e vorba de src-ul iframe-ului ce de taguri <a> care la click se deschid in iframe. Iframe-ul va contine in mod default una dintre resursele specificate in linkuri -->
                     <div class="flex-container">
                         <div class="taburi-iframe">
                             <a href="https://www.youtube.com/embed/StpWqVsOlEQ" target="ifr-video2"><b>Paste cu
@@ -139,11 +147,11 @@
                         </div>
 
                         <div class="flex-iframe">
-                        <iframe name="ifr-video2" width="560" height="315"
-                            src="https://www.youtube.com/embed/StpWqVsOlEQ"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                            </div>
+                            <iframe name="ifr-video2" width="560" height="315"
+                                src="https://www.youtube.com/embed/StpWqVsOlEQ"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
                     </div>
 
                 </section>
@@ -241,26 +249,29 @@
 
                 </section>
 
-                <section id="evenimente">
+                <article id="evenimente">
                     <h2>Evenimente</h2>
-                    <p>sucurio la Noaptea Ispitelor, singură sau cu ispita ta. Te așteptăm într-o ambianță perfectă pentru
+                    <p>Vino la Noaptea Ispitelor, singură sau cu ispita ta. Te așteptăm într-o ambianță perfectă
+                        pentru
                         a te
                         lăsa ispitită de ritmul muzicii,
                         de baieții de la Flamingo Boys și culorile cocktail-urilor amețitoare.<br>
                         Te așteptăm la restaurantul Gourani în data de 8 martie, începand cu ora 19:30 (eveniment
                         dedicat
                         femeilor, dar au acces și bărbații).<br>
-                        Programul artistic este unul adecvat zilei de 8 Martie și include Flamingo Boys,MC Vasile
+                        Programul artistic este unul adecvat zilei de 8 Martie și include <abbr title="Flamingo Boys">FB</abbr>,MC Vasile
                         Calofir
                         și mai multe formații care sigur vă vor încânta.<br>
                         Facilități: parcare pazită gratuită în limita locurilor disponibile și garderobă, bucătărie
                         deschisă
                         cu meniul disponibil la locație.</p>
+                        <!-- un link extern (va fi in continutul paginii, nu in meniu, va face referire la alt site si se va deschide in fereastră nouă) -->
+
                     <a href="https://www.bilete.ro/calendar/martie-2023/08/">Click aici pentru bilete la evenimentul din
                         <b>8
                             martie 2023</b></a>
 
-                </section>
+                </article>
 
                 <section id="anunturi">
                     <h2>Anunturi</h2>
@@ -318,7 +329,7 @@
                         <li>Vârstă: 30 de ani</li>
                         <li>Ocupație: Designer grafic</li>
                         <li>A vizitat pagina de șapte ori </li>
-                        <li>Ip:  <%- locals.ip%> </li>
+                        <li>Ip: <%- locals.ip%> </li>
                         <li>A distribuit meniul restaurantului</li>
                         <li>A petrecut în medie 3 minute pe pagină ă</li>
                         <li>A vizualizat meniul de șase ori în total</li>
@@ -373,236 +384,38 @@
                         <h2>Galerie</h2>
                         <div id="grid-galerie">
                             <figure>
-                            <img src="/resurse/imagini/briose-frisca.png" alt="briose">
-                            <figcaption>Briose</figcaption>
+                                <img src="/resurse/imagini/briose-frisca.png" alt="briose">
+                                <figcaption>Briose</figcaption>
                             </figure>
                             <figure>
-                            <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                            <figcaption>Briose</figcaption>
+                                <img src="resurse/imagini/briose-frisca.png" alt="briose">
+                                <figcaption>Briose</figcaption>
                             </figure>
                             <figure>
-                            <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                            <figcaption>Briose</figcaption>
+                                <img src="resurse/imagini/briose-frisca.png" alt="briose">
+                                <figcaption>Briose</figcaption>
                             </figure>
                             <figure>
-                            <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                            <figcaption>Briose</figcaption>
+                                <img src="resurse/imagini/briose-frisca.png" alt="briose">
+                                <figcaption>Briose</figcaption>
                             </figure>
                             <figure>
-                            <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                            <figcaption>Briose</figcaption>
+                                <img src="resurse/imagini/briose-frisca.png" alt="briose">
+                                <figcaption>Briose</figcaption>
                             </figure>
                             <figure>
-                            <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                            <figcaption>Briose</figcaption>
+                                <img src="resurse/imagini/briose-frisca.png" alt="briose">
+                                <figcaption>Briose</figcaption>
                             </figure>
                             <figure>
-                            <img src="resurse/imagini/briose-frisca.png" alt="briose">
-                            <figcaption>Briose</figcaption>
+                                <img src="resurse/imagini/briose-frisca.png" alt="briose">
+                                <figcaption>Briose</figcaption>
                             </figure>
-                        
+
                         </div>
                     </section>
                 </section>
             </div>
-            <!--pentru pagina cu meniu-->
-            <!-- <section id="meniu">
-                <h2>MENIU</h2>
-                <p>
-                    Propunerea noastră culinară este o combinație de preparate tradiționale americane, mediteraneene
-                    și românești, selecționate dintre cele mai populare și apreciate din întreaga lume, indiferent
-                    de vârstă.
-
-                    Gusturile cunoscute și seducătoare sunt menite să celebreze momentele spontane și distractive
-                    petrecute în compania prietenilor. Aceasta este mâncarea la care te întorci mereu, mâncarea care
-                    te duce cu gândul la amintirile fericite alături de cei dragi.
-
-                    Am ales să păstrăm nostalgia în locul exceselor, să renunțăm la mâncărurile sofisticate în
-                    favoarea celor calde și satisfăcătoare, dar cu o notă de inovație personală, care le face cu
-                    adevărat speciale.
-
-                </p>
-                <section id="mancare">
-                    <h3>MÂNCARE</h3>
-
-                    <section id="paste">
-                        <h4>PASTE</h4>
-
-                        <ul>
-                            <li>Tagliatelle Vitello</li>
-                            <li>Spaghetti Al Pomodoro</li>
-                            <li>Special Cannelloni</li>
-                            <li>Linguine cu creveți</li>
-                        </ul>
-                    </section>
-                    <section id="gratar">
-                        <h4>PREPARATE LA GRĂTAR</h4>
-                        <ul>
-                            <li>Mușchi de vită argentiniană</li>
-                            <li>Piept de pui marinat</li>
-                            <li>Coaste de mangaliță</li>
-                            <li>Biban de mare</li>
-                            <li>Ceafă de mangaliță</li>
-                            <li>Cotlețele de miel în stil franțuzesc fin</li>
-                        </ul>
-                    </section>
-                    <section id="pizza">
-                        <h4>PIZZA</h4>
-                        <ul>
-                            <li>Capriciosa</li>
-                            <li>Margherita</li>
-                            <li>Europeană</li>
-                            <li>California</li>
-                            <li>Quattro Stagioni</li>
-                        </ul>
-                    </section>
-                </section>
-                <section id="desert">
-                    <h4>DESERT</h4>
-                    <ul>
-                        <li>Papanași cu dulceață de afine</li>
-                        <li>Pavlova cu fructe de pădure</li>
-                        <li>Cheesecake</li>
-                        <li>Înghețată DELICATO</li>
-                    </ul>
-                </section>
-            </section>
-            <section id="bauturi">
-                <h3>BĂUTURI</h3>
-                <section id="sucuri">
-                    <h4>sucuri</h4>
-                    <ul>
-                        <li>Sauvignon Blanc</li>
-                        <li>Pinot Noir</li>
-                        <li>Fetească Neagră</li>
-                        <li>Negrini Cupaj rose</li>
-                        <li>Negrini Cupaj Alb</li>
-                        <li>Lacerta Rheinriesling</li>
-                        <li>Nocturne Purcari</li>
-                        <li>Rasova alb</li>
-                    </ul>
-                </section>
-                <section id="bere">
-                    <h4>BERE</h4>
-                    <ul>
-                        <li>Silva strong dark</li>
-                        <li>Birra Morreti</li>
-                        <li>Heineken</li>
-                        <li>Desperados</li>
-                        <li>Ciuc Premium</li>
-                        <li>Ciuc Radler</li>
-                    </ul>
-                </section>
-                <section id="cocktail">
-                    <h4>bere</h4>
-                    <ul>
-                        <li>NOR 36</li>
-
-                        <li>Exotic Weekend</li>
-                        <li>Mango mojito</li>
-                        <li>White peach margarita</li>
-                        <li>First date gin</li>
-                    </ul>
-                </section>
-            </section>
-            <section id="cafea">
-                <h4>CAFEA</h4>
-                <ul>
-                    <li>Espresso</li>
-                    <li>Latte macchiato</li>
-                    <li>Cappuccino</li>
-                    <li>Ciocolată caldă albă</li>
-                    <li>Ceai</li>
-                    <li>Ciocolată neagră</li>
-                </ul>
-            </section>
-
-
-            <section id="despre">
-                <h2>DESPRE</h2>
-                <section id="prezentare">
-                    <h3>O scurtă prezentare a acestui restaurant</h3>
-                    <p>Gourani este locul unde fiecare detaliu spune o poveste. Situat în imediata apropiere a
-                        parcului IOR, la etajul 3 în galeriile <b>Titan</b>,
-                        Gourani este un spațiu plin de vitalitate și relaxare, perfect pentru a petrece momente
-                        deosebite în orice moment al zilei. Inspirat de
-                        frumusețea formelor naturii, restaurantul Gourani a fost creat pentru a celebra
-                        complexitatea acesteia, transformându-se într-o destinație
-                        în sine, nu doar un simplu restaurant. De la iluminarea excentrică până la elementele de
-                        decor îmbinate într-un mod surprinzător, Gourani
-                        dorește să îndeplinească dorințele nonconformiste ale oaspeților săi. Astfel, vă invităm
-                        să vă bucurați de priveliștea panoramică a parcului
-                        IOR în timp ce savurați mâncarea preferată, un pahar de sucuri sau o conversație plăcută.
-                        Vă invităm să experimentați gustul autentic al
-                        preparatelor noastre culinare și să vă bucurați de o experiență gastronomică
-                        de neuitat. Sperăm să vă simțiti cât mai bine și să nu experimentați nici dumneavoastră, dar
-                        nici noi, evenimente, ca în clipul de mai jos(un scurt moment de amuzament care sperăm că vă
-                        va distra):</p>
-                    <div class="taburi-iframee">
-                        <a href="https://www.youtube.com/embed/km4ziaZUZDU" target="ifr-videoo"></a>
-
-                    </div>
-                    <iframe name="ifr-videoo" width="560" height="315" src="https://www.youtube.com/embed/km4ziaZUZDU"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-
-                </section>
-                <section id="program">
-                    <div class="container">
-                        <h2>Program</h2>
-                        <table id="tab-program">
-                            <thead>
-
-                                <tr>
-                                    <th>Perioadă</th>
-                                    <th>Zi</th>
-                                    <th>Interval</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td rowspan="5">Zile<br>Lucrătoare</td>
-                                    <td>Luni</td>
-                                    <td>09:30-00:00</td>
-                                </tr>
-                                <tr>
-                                    <td>Marti</td>
-                                    <td>09:30-00:00</td>
-                                </tr>
-                                <tr>
-                                    <td>Miercuri</td>
-                                    <td>09:30-00:00</td>
-                                </tr>
-                                <tr>
-                                    <td>Joi</td>
-                                    <td>09:30-00:00</td>
-                                </tr>
-                                <tr>
-                                    <td>sucurieri</td>
-                                    <td>09:30-00:00</td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="2">Weekend</td>
-                                    <td>Sambata</td>
-                                    <td>10:00-02:00</td>
-                                </tr>
-                                <tr>
-                                    <td>Duminica</td>
-                                    <td>10:00-00:00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-            </section>
-            <section id="autentificare">
-                <h2>AUTENTIFICARE</h2>
-                <p>Conectare<br>Nu aveți cont? Înregistrare</p>
-            </section> -->
-
-        </main>
-        <footer>
-            <p id="banner">Acesta este un proiect școlar!</p>
             <section id="intrbfrec">
                 <h4>Întrebări frecvente:</h4>
                 <details>
@@ -633,6 +446,10 @@
                         locuri disponibile în aer liber.</p>
                 </details>
             </section>
+        </main>
+        <footer>
+            <p id="banner">Acesta este un proiect școlar!</p>
+            <!-- un link în footer către începutul paginii, -->
             <a href="#" class="scroll-to-top">
                 <span class="arrow">&#129081;</span>
                 <span class="tooltip">Mergi sus</span>
@@ -648,8 +465,11 @@
                 <br>
                 Restaurantul este situat pe Str. Lalelor nr.23, Sector 2, București
                 <a href="https://goo.gl/maps/WEiTWkg7eTcS3bbn6" target="_blank">Deschide locația pe Google Maps</a>
+                <!--Un link de tip download-->
                 <a href="./resurse/TERMENI_SI_CONDITII.pdf" download>TERMENI ȘI CONDIȚII</a>
             </address>
+            <!-- In footer se va adăuga informație de copyright, folosind tagul small, simbolul specific de copyright cu codul html necesar (forma &cod;) și data creării paginii scrisă în limba română și pusă în tagul time cu atributul datetime corespunzător.  -->
+
             <small>Copyright &copy; <time datetime="2023-03-05">05 Martie 2023</time></small>
         </footer>
     </body>

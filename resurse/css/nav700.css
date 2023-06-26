@@ -30,7 +30,7 @@ ul.meniu {
     animation-iteration-count: 1;
     transform-origin: center top;
     transform: scale(0);
-    transition: transform 1.5 ease-in-out;
+    transition: transform 1.5s ease-in-out;
 }
 
 
