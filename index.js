@@ -31,7 +31,6 @@ AccesBD.getInstanta().select(
     }
 )
 
-
 var client= new Client({database:"site-web",
         user:"anto",
         password:"1234",

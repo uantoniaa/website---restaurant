@@ -367,6 +367,12 @@ main a:active {
     padding-bottom: 0;
 
 }
+#text,
+#text-reflectat {
+    font-size: 2rem;
+    text-align: center;
+}
+
 
 #produse section{
     border-image:none;
@@ -417,12 +423,6 @@ input.login{
 }
 
 
-#text,
-#text-reflectat {
-    font-size: 2rem;
-    text-align: center;
-}
-
 #titlu-u {
     white-space: nowrap;
     overflow: hidden;
@@ -430,16 +430,16 @@ input.login{
 }
 
 #titlu-u h2 {
-    animation: scroll 10s linear infinite;
+    animation: scroll 9s linear infinite;
 }
 
 @keyframes scroll {
     0% {
-        transform: translateX(0);
+        transform: translateX(-100%);
     }
 
     100% {
-        transform: translateX(-100%);
+        transform: translateX(100%);
     }
 }
 
